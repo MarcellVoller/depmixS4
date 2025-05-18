@@ -1,4 +1,3 @@
-# 
 # for the transition models and the prior (y is missing, ie there is no
 # response, and nstates must be provided as the number of categories
 # neccessary in the mulinomial model)
@@ -143,7 +142,7 @@ setMethod("fit","transInit",
     		Wts[-1,] <- pars$coefficients # set starting weights
     		Wts[Wts == Inf] <- .Machine$double.max.exp # Fix this!!!!
     		Wts[Wts == -Inf] <- .Machine$double.min.exp # Fix this!!!!!
-			Wts[is.na(Wts)] <- sample(c(.Machine$double.max.exp,.Machine$double.min.exp), 1)))
+			Wts[is.na(Wts)] <- sample(c(.Machine$double.max.exp,.Machine$double.min.exp), 1)
     		if(!is.null(w)) {
     			if(NCOL(y) < 3) {
     				fit <- nnet.default(x,y,weights=w,size=0,entropy=TRUE,skip=TRUE,mask=mask,Wts=Wts,trace=FALSE)
